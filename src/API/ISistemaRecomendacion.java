@@ -125,6 +125,13 @@ public interface ISistemaRecomendacion {
 	 */
 	ILista<VOPeliculaPlan> PlanPorGeneroDesplazamientoYFranquicia(VOGeneroPelicula genero, Date fecha, VOFranquicia franquicia);
 	
+	/**R9
+	 * Genera un MST para el grafo de Teatros
+	 * @return Lista de aristas pertenecientes al MST encontrado, null si no es posible generar un MST.
+	 */
+	ILista<IEdge<VOTeatro>> generarMapa();
+	
+	
 	/**R10
 	 * Dado el teatro de origen y el numero maximo de tetros a vistar,
 	 * genera una lista de todas las rutas distintas que el usuario puede seguir sin sobrepasar el limite maximo de teatros n
