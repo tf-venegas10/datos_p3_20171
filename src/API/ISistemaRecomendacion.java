@@ -1,5 +1,5 @@
 /**
- * La documentación del API de ninguna forma reemplaza la lectura de los requerimientos del proyecto.
+ * La documentaciï¿½n del API de ninguna forma reemplaza la lectura de los requerimientos del proyecto.
  * El documento del proyecto tiene definidos los requerimientos exactos.
  * 
  * 
@@ -10,9 +10,6 @@
 
 
 package API;
-
-import java.sql.Date;
-
 import VOS.VOFranquicia;
 import VOS.VOGeneroPelicula;
 import VOS.VOPeliculaPlan;
@@ -26,19 +23,19 @@ public interface ISistemaRecomendacion {
 
 	
 	/**
-	 * Metodo que crea un Sistema de recomendación vacio
+	 * Metodo que crea un Sistema de recomendaciï¿½n vacio
 	 * @return ISistemaRecomendacionPeliculas
 	 */
 	ISistemaRecomendacion crearSR();
 	
 	/**R1
 	 * 
-	 * Cargar la informacion basica de las salas de cine que participan en el festival.
+	 * Cargar la informacion basica de los teatros de cine que participan en el festival.
 	 * (Nombre, ubicacion, franquicia)
 	 * @param ruta
 	 * @return
 	 */
-	boolean cargarSalas(String ruta);
+	boolean cargarTeatros(String ruta);
 	
 	/**R2
 	 * 
@@ -60,13 +57,13 @@ public interface ISistemaRecomendacion {
 	
 	/**
 	 * 
-	 * @return número de pelíclas en la cartelera del sistema
+	 * @return nï¿½mero de pelï¿½clas en la cartelera del sistema
 	 */
 	int sizeMovies() ;
 	
 	/**
 	 * 
-	 * @return número de teatros registrados
+	 * @return nï¿½mero de teatros registrados
 	 */
 	int sizeTeatros() ;
 	
@@ -76,10 +73,10 @@ public interface ISistemaRecomendacion {
 	 * maximizando el numero de peliculas
 	 * 
 	 * @param usuario
-	 * @param fecha
+	 * @param fecha (1..5)
 	 * @return lista con el plan propuesto
 	 */
-	ILista<VOPeliculaPlan> PlanPeliculas(VOUsuario usuario,Date fecha);
+	ILista<VOPeliculaPlan> PlanPeliculas(VOUsuario usuario,int fecha);
 	
 	/**R5
 	 * Genera un plan de peliculas para UN DIA maximizando la cantidad de peliculas en el dia
@@ -93,13 +90,13 @@ public interface ISistemaRecomendacion {
 	/**R6
 	 * Genera un plan de peliculas en la fecha dada pasando solo por teatros de una misma franquicia
 	 * maximizando el numero de pliculas
-	 * El usuario puede (o no) precisar una franja de horario (ej. mañana y noche)
+	 * El usuario puede (o no) precisar una franja de horario (ej. maï¿½ana y noche)
 	 * @param franquicia
-	 * @param fecha
+	 * @param fecha (1..5)
 	 * @param franja
 	 * @return plan propuesto
 	 */
-	ILista<VOPeliculaPlan> PlanPorFranquicia(VOFranquicia franquicia, Date fecha,String franja);
+	ILista<VOPeliculaPlan> PlanPorFranquicia(VOFranquicia franquicia, int fecha,String franja);
 	
 	/**R7
 	 * 
@@ -107,10 +104,10 @@ public interface ISistemaRecomendacion {
 	 * que maximiza el numero de peliculas y que minimiza el tiempo de desplazamiento.
 	 * Sobre todos los planes de numero de peliculas maximo, se debe encontrar el (uno) de tiempo de desplazamiento minimo 
 	 * @param genero
-	 * @param fecha
+	 * @param fecha (1..5)
 	 * @return plan
 	 */
-	ILista<VOPeliculaPlan> PlanPorGeneroYDesplazamiento(VOGeneroPelicula genero, Date fecha);
+	ILista<VOPeliculaPlan> PlanPorGeneroYDesplazamiento(VOGeneroPelicula genero, int fecha);
 	
 	
 	/**R8
@@ -120,10 +117,10 @@ public interface ISistemaRecomendacion {
 	 * Sobre todos los planes de numero de peliculas maximo, se debe encontrar el (uno) de tiempo de desplazamiento minimo 
 	 * @param genero
 	 * @param franquicia
-	 * @param fecha
+	 * @param fecha (1..5)
 	 * @return plan
 	 */
-	ILista<VOPeliculaPlan> PlanPorGeneroDesplazamientoYFranquicia(VOGeneroPelicula genero, Date fecha, VOFranquicia franquicia);
+	ILista<VOPeliculaPlan> PlanPorGeneroDesplazamientoYFranquicia(VOGeneroPelicula genero, int fecha, VOFranquicia franquicia);
 	
 	/**R9
 	 * Genera un MST para el grafo de Teatros

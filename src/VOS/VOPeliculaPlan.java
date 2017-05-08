@@ -32,9 +32,10 @@ public class VOPeliculaPlan {
 	
 	/**
 	 * Atributo que modela el dia de presentacion de la pelicla
+	 * (1..5)
 	 */
 	
-	private Date dia;
+	private int dia;
 	
 	public VOPeliculaPlan() {
 		// TODO Auto-generated constructor stub
@@ -72,11 +73,11 @@ public class VOPeliculaPlan {
 		this.horaFin = horaFin;
 	}
 
-	public Date getDia() {
+	public int getDia() {
 		return dia;
 	}
 
-	public void setDia(Date dia) {
+	public void setDia(int dia) {
 		this.dia = dia;
 	}
 	
